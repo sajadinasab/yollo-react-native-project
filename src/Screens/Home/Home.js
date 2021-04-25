@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, TouchableOpacity, TextInput, FlatList, Image } from 'react-native';
+import { View, TouchableOpacity, FlatList } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 import { Content, PageTitleAndSearch } from 'Components';

@@ -67,6 +67,9 @@ const ParentStyle = StyleSheet.create({
     bgColor: {
         backgroundColor: Color.custom.bgColor
     },
+    bglight: {
+        backgroundColor: Color.custom.light
+    },
     pageTitle: {
         fontFamily: Fonts.bold,
         fontSize: Size[38],
