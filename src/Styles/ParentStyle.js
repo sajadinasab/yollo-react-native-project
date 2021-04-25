@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { Color, Config } from 'Constants';
+import { Color, Fonts, Size } from 'Constants';
 const ParentStyle = StyleSheet.create({
     ///// global
     row: {
@@ -30,34 +30,70 @@ const ParentStyle = StyleSheet.create({
     },
     ///text
     lightText: {
-        fontFamily: Config.Fonts.light,
-        fontSize: Config.Size[15]
+        fontFamily: Fonts.light,
+        fontSize: Size[15]
     },
     mediumText: {
-        fontFamily: Config.Fonts.medium,
-        fontSize: Config.Size[14]
+        fontFamily: Fonts.medium,
+        fontSize: Size[14]
     },
     regularText: {
-        fontFamily: Config.Fonts.regular,
-        fontSize: Config.Size[14]
+        fontFamily: Fonts.regular,
+        fontSize: Size[14]
     },
     ////
+    m30: {
+        margin: 30
+    },
     mB20: {
         marginBottom: 20
     },
     mT10: {
         marginTop: 10
     },
+    mT20: {
+        marginTop: 20
+    },
     mL10: {
         marginLeft: 10
+    },
+    mL20: {
+        marginLeft: 20
+    },
+    mR30: {
+        marginRight: 30
     },
     // custom
     bgColor: {
         backgroundColor: Color.custom.bgColor
     },
     pageTitle: {
-        fontFamily: Config.Fonts.bold,
-        fontSize: Config.Size[38],
-    }
+        fontFamily: Fonts.bold,
+        fontSize: Size[38],
+    },
+    roundBtn: {
+        width: 50,
+        height: 50,
+        borderRadius: 50,
+        backgroundColor: Color.custom.light,
+        margin: 30,
+        alignItems: "center",
+        justifyContent: "center",
+        alignSelf: "flex-end"
+    },
+    badge: {
+        backgroundColor: Color.custom.light,
+        paddingVertical: 10,
+        paddingHorizontal: 15,
+        borderRadius: 50
+    },
+    badgeText: {
+        fontFamily: Fonts.bold,
+        fontSize: Size[14],
+    },
+    plusIcon: {
+        color: "#020202",
+        fontSize: Size[17]
+    },
 })
 export default ParentStyle;

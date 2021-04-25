@@ -1,17 +1,6 @@
 import { StyleSheet } from "react-native";
-import { Color, Config } from "Constants";
-const { Size, Fonts } = Config;
+import { Color, Fonts, Size } from "Constants";
 const styles = StyleSheet.create({
-    badge: {
-        width: 50,
-        height: 50,
-        borderRadius: 50,
-        backgroundColor: Color.custom.light,
-        margin: 30,
-        alignItems: "center",
-        justifyContent: "center",
-        alignSelf: "flex-end"
-    },
     searchInput: {
         backgroundColor: Color.custom.light,
         borderRadius: 25,
@@ -33,10 +22,6 @@ const styles = StyleSheet.create({
         zIndex: 2,
         color: Color.custom.textColor,
         fontSize: Size[21]
-    },
-    plusIcon: {
-        color: "#020202",
-        fontSize: Size[17]
     },
     card: {
         marginTop: 20,

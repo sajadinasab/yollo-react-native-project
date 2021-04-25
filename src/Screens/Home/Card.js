@@ -2,11 +2,12 @@ import React from 'react';
 import { Text, View, FlatList, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import styles from './styles';
+
+import styles from './HomeStyles';
 import { Color } from "Constants";
 import { ParentStyle } from "Styles";
+
 const Card = ({ item }) => {
-    console.log("avatar", item.avatar)
     return (
         <View style={styles.card}>
             <View style={styles.cardHeader}>

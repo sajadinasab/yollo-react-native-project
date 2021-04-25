@@ -4,8 +4,8 @@ import styles from './styles';
 const Content = (props) => {
     let { children, style } = props;
     return (
-        <SafeAreaView style={styles.safeArea}>
-            <ScrollView style={styles.container, style}>
+        <SafeAreaView style={[styles.safeArea, style]}>
+            <ScrollView style={styles.container}>
                 <KeyboardAvoidingView>
                     <>{children}</>
                 </KeyboardAvoidingView>

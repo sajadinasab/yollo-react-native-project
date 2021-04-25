@@ -1,13 +1,13 @@
 import { StyleSheet } from "react-native";
-import { Config } from 'Constants';
+import { Height } from 'Constants';
 const styles = StyleSheet.create({
     safeArea: {
         flex: 1,
-        minHeight: Config.Height - Config.Height / 6
+        minHeight: Height
     },
     container: {
         flex: 1,
-        minHeight: Config.Height,
+        minHeight: Height,
     },
 })
 export default styles;

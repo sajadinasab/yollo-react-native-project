@@ -11,8 +11,12 @@ export default {
     custom: {
         light: "#F7F7F8",
         bgColor: "#fff",
-        textColor: "#C6C7CE",
+        textColor: "#C8CBCE",
         lightText: "#C9CACF",
-        red: "#F67B6C"
+        red: "#F67B6C",
+        gray: "#ABACB9",
+        primaryBlue: "#465EFE",
+
+
     }
 }
