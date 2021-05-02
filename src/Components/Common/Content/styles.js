@@ -3,11 +3,11 @@ import { Height } from 'Constants';
 const styles = StyleSheet.create({
     safeArea: {
         flex: 1,
-        minHeight: Height
+        // minHeight: Height
     },
     container: {
         flex: 1,
-        minHeight: Height,
+        // minHeight: Height,
     },
 })
 export default styles;

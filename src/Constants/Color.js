@@ -16,7 +16,6 @@ export default {
         red: "#F67B6C",
         gray: "#ABACB9",
         primaryBlue: "#465EFE",
-
-
+        yellow: "#F5B578"
     }
 }

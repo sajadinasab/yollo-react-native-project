@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { Color, Fonts, Size } from "Constants";
+import { Color, Fonts, Size, Height } from "Constants";
 
 const styles = StyleSheet.create({
     header: {
@@ -17,7 +17,8 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff",
         borderTopRightRadius: 30,
         borderTopLeftRadius: 30,
-        padding: 20
+        padding: 20,
+        minHeight: Height
     },
     headerIcon: {
         fontSize: Size[21],
@@ -40,10 +41,5 @@ const styles = StyleSheet.create({
         color: Color.custom.textColor,
         marginLeft: 20
     },
-    contactImg: {
-        width: 40,
-        height: 40,
-        borderRadius: 40
-    }
 })
 export default styles;

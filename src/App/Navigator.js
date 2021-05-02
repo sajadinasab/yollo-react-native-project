@@ -2,7 +2,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Home, Discover, Chat, ChatDetails } from 'Screens';
+import { Home, Discover, Chat, ChatDetails, CreateStory } from 'Screens';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const Tab = createBottomTabNavigator();
@@ -57,6 +57,7 @@ export default Navigator = () => {
             <Stack.Navigator>
                 <Stack.Screen name="Stack" component={TabScreen} options={{ headerShown: false }} />
                 <Stack.Screen name="ChatDetails" component={ChatDetails} options={{ headerShown: false }} />
+                <Stack.Screen name="CreateStory" component={CreateStory} options={{ headerShown: false }} />
             </Stack.Navigator>
         </NavigationContainer>
     )

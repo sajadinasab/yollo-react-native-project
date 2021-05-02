@@ -94,7 +94,7 @@ const Discover = (props) => {
 
     return (
         <Content style={ParentStyle.bgColor}>
-            <View style={ParentStyle.rowSpaceBetween}>
+            <View style={ParentStyle.header}>
                 <TouchableOpacity activeOpacity={0.8} style={ParentStyle.roundBtn}>
                     <Icon name="dot-circle-o" style={styles.headIcon} />
                 </TouchableOpacity>

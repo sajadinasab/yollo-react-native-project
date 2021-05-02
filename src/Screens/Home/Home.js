@@ -11,9 +11,9 @@ import Card from './Card';
 const Home = (props) => {
     const { navigate } = props.navigation;
     return (
-        <Content style={ParentStyle.bgColor}>
-            <View>
-                <TouchableOpacity activeOpacity={0.8} style={ParentStyle.roundBtn}>
+        <Content style={ParentStyle.contentBottomTab}>
+            <View style={[ParentStyle.header, { justifyContent: "flex-end" }]}>
+                <TouchableOpacity onPress={() => navigate("CreateStory")} activeOpacity={0.8} style={ParentStyle.roundBtn}>
                     <Icon name="plus" style={ParentStyle.plusIcon} />
                 </TouchableOpacity>
             </View>

@@ -11,12 +11,12 @@ import { Data } from 'Constants';
 
 const Chat = (props) => {
     return (
-        <Content style={ParentStyle.bgColor}>
-            <View style={[ParentStyle.rowSpaceBetween, ParentStyle.alignItemsCenter]}>
+        <Content style={ParentStyle.contentBottomTab}>
+            <View style={ParentStyle.header}>
                 <TouchableOpacity activeOpacity={0.8} style={ParentStyle.roundBtn}>
                     <FontAwesome name="plus" style={ParentStyle.plusIcon} />
                 </TouchableOpacity>
-                <Icon style={[ParentStyle.plusIcon, ParentStyle.mR30]} name="more-vertical" />
+                <Icon style={ParentStyle.plusIcon} name="more-vertical" />
             </View>
             <PageTitleAndSearch pageTitle="Chat" />
             <FlatList

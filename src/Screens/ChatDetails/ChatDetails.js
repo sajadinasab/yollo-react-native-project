@@ -24,7 +24,7 @@ const ChatDetails = (props) => {
             </View>
             <Content style={styles.content}>
                 <View style={ParentStyle.row}>
-                    <Image source={Data.contactImg} style={styles.contactImg} />
+                    <Image source={Data.contactImg} style={ParentStyle.contactImg} />
                     <View style={styles.chatBox}>
                         <Text style={styles.chatBoxText}>Add your feedback! </Text>
                         <Text style={styles.chatBoxTimeText}>9:15</Text>

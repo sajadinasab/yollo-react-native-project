@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { Color, Fonts, Size } from 'Constants';
+import { Color, Fonts, Size, Height } from 'Constants';
 const ParentStyle = StyleSheet.create({
     ///// global
     row: {
@@ -63,6 +63,9 @@ const ParentStyle = StyleSheet.create({
     mR30: {
         marginRight: 30
     },
+    p20: {
+        padding: 20
+    },
     // custom
     bgColor: {
         backgroundColor: Color.custom.bgColor
@@ -79,10 +82,9 @@ const ParentStyle = StyleSheet.create({
         height: 50,
         borderRadius: 50,
         backgroundColor: Color.custom.light,
-        margin: 30,
         alignItems: "center",
         justifyContent: "center",
-        alignSelf: "flex-end"
+        // alignSelf: "flex-end"
     },
     badge: {
         backgroundColor: Color.custom.light,
@@ -98,5 +100,35 @@ const ParentStyle = StyleSheet.create({
         color: "#020202",
         fontSize: Size[17]
     },
+    contentBottomTab: {
+        minHeight: Height - Height / 6,
+        backgroundColor: Color.custom.bgColor
+    },
+    contentNoBottomTab: {
+        backgroundColor: "#fff",
+        padding: 20,
+        minHeight: Height
+    },
+    header: {
+        height: 70,
+        flexDirection: "row",
+        alignItems: "center",
+        paddingHorizontal: 20,
+        justifyContent: "space-between"
+    },
+    headerTitle: {
+        fontFamily: Fonts.bold,
+        fontSize: Size[15]
+    },
+    contactImg: {
+        width: 40,
+        height: 40,
+        borderRadius: 40
+    },
+    input: {
+        borderBottomColor: Color.custom.light,
+        borderBottomWidth: 2
+    }
+
 })
 export default ParentStyle;
