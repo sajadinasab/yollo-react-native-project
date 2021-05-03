@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { Color, Fonts, Size } from "Constants";
+import { Color, Fonts, Size, Width } from "Constants";
 const styles = StyleSheet.create({
     searchInput: {
         backgroundColor: Color.custom.light,
@@ -15,13 +15,15 @@ const styles = StyleSheet.create({
         position: "relative",
         width: "85%"
     },
-    searchIcon: {
+    searchView: {
         position: "absolute",
         top: 42,
-        left: "37%",
+        // transform: [{ translateX: Width / 3.3 }],
         zIndex: 2,
+    },
+    searchIcon: {
         color: Color.custom.textColor,
         fontSize: Size[21]
-    },
+    }
 })
 export default styles

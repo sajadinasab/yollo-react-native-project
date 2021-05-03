@@ -45,6 +45,29 @@ const styles = StyleSheet.create({
         borderRadius: 25,
         marginHorizontal: 10,
         marginVertical: 5
+    },
+    checkBox: {
+        position: "absolute",
+        top: 15,
+        right: 15,
+        borderRadius: 25,
+        borderColor: "#fff",
+        width: 25,
+        height: 25,
+        zIndex: 2,
+        borderWidth: 2,
+        justifyContent: "center",
+        alignItems: "center"
+    },
+    checkBoxIcon: {
+        color: "#fff"
+    },
+    cameraIcon: {
+        position: "absolute",
+        top: 15,
+        right: 15,
+        color: Color.custom.light,
+        fontSize: Size[15]
     }
 })
 export default styles;

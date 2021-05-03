@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, TouchableOpacity, Image, TextInput, SafeAreaView, FlatList } from 'react-native';
+import { View, Text, TouchableOpacity, Image, TextInput, FlatList, Pressable } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import CameraRoll from "@react-native-community/cameraroll";
+import _ from 'lodash';
+import { RNCamera } from 'react-native-camera';
 
 import { Content } from 'Components';
-import { Images, Height } from "Constants";
+import { Images, Height, Color } from "Constants";
 import styles from './CreateStoryStyle';
 import { ParentStyle } from "Styles";
 
@@ -14,23 +16,47 @@ const CreateStory = (props) => {
     useEffect(() => {
         (async () => {
             let readFiles = await CameraRoll.getPhotos({ first: 20, after: "20", groupTypes: 'All' });
+            readFiles.edges.map((item, index) => {
+                item.checked = false;
+                item.id = index
+            });
             setImages(readFiles.edges);
         })()
     }, []);
-
+    const checkBoxCheck = (id) => {
+        let copyImage = _.cloneDeep(images);
+        let findIndex = copyImage.findIndex(item => item.id == id);
+        copyImage[findIndex].checked = !copyImage[findIndex].checked;
+        setImages(copyImage);
+    }
     const showImages = () => {
         return (
             <FlatList
                 style={styles.imageGridContainer}
                 data={images}
                 numColumns={3}
-                renderItem={({ item, index }) => (
-                    <View style={{ position: "relative" }}>
-                        <Image key={index} source={{ uri: item.node.image.uri }} style={styles.grids} />
-
-                    </View>
-                )}
-
+                renderItem={({ item, index }) => {
+                    return (index == 0 ?
+                        <Pressable style={[styles.grids, { overflow: "hidden" }]}>
+                            <RNCamera
+                                // ref={cam => {
+                                //     camera = cam;
+                                // }}
+                                type={RNCamera.Constants.Type.back}
+                                style={{ width: "100%", height: "100%" }}
+                            />
+                            <Icon name="camera" style={styles.cameraIcon} />
+                        </Pressable>
+                        :
+                        <Pressable onPress={() => checkBoxCheck(item.id)} style={{ position: "relative" }}>
+                            <Image key={index} source={{ uri: item.node.image.uri }} style={styles.grids} />
+                            <Pressable onPress={() => checkBoxCheck(item.id)} style={[styles.checkBox, item.checked ? { backgroundColor: Color.custom.primaryBlue } : {}]} >
+                                {item.checked && <Icon name="check" style={styles.checkBoxIcon} />}
+                            </Pressable>
+                        </Pressable>
+                    )
+                }
+                }
                 keyExtractor={(item, index) => index.toString()}
             />
         )
@@ -62,10 +88,7 @@ const CreateStory = (props) => {
                     <TextInput style={[ParentStyle.input, styles.textInput]} placeholder="Add a Caption ..." multiline={true} />
                 </View>
                 <View style={{ height: Height / 3 }}></View>
-
-                {/* <View style={styles.imageGridContainer}> */}
                 {showImages()}
-                {/* </View> */}
             </Content>
         </View>
     );
