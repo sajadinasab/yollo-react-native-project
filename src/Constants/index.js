@@ -1,7 +1,4 @@
-import _Color from "./Color";
+export { default as Color } from "./Color";
 export * from './Config';
-import _Data from "./Data";
+export { default as Data } from "./Data";
 export * from "./Images";
-
-export const Color = _Color;
-export const Data = _Data;

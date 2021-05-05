@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Text, View, TouchableOpacity, Image, Pressable } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Carousel from 'react-native-snap-carousel';
@@ -10,7 +10,6 @@ import { Data, Width } from 'Constants';
 import { subStrText } from 'Utilities'
 
 const Discover = (props) => {
-    const { navigate } = props.navigation;
     const [state, setstate] = useState({
         all: {
             active: true

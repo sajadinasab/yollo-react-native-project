@@ -2,14 +2,13 @@ import React from 'react';
 import { Text, View, Image, Pressable } from 'react-native';
 
 import styles from './ChatStyle';
-import { Color } from "Constants";
 import { ParentStyle } from "Styles";
 import { subStrText } from 'Utilities'
 
 const ChatList = ({ item, size, navigation }) => {
     return (
         <Pressable onPress={() => navigation.navigate("ChatDetails", { Data: item })} style={[ParentStyle.row, ParentStyle.mT20]}>
-            <View style={{ position: "relative", flex: 1.1, flexDirection: "row", alignItems: "center", justifyContent: "flex-end" }}>
+            <View style={styles.avatarContainer}>
                 {item.unReadMassage > 0 && <View style={styles.notifBadge}>
                     <Text style={styles.notifBadgeText}>{item.unReadMassage}</Text>
                 </View>}

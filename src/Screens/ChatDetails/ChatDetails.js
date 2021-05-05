@@ -1,9 +1,8 @@
 import React from 'react';
-import { Text, View, Image, TextInput } from 'react-native';
+import { Text, View, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 
 import styles from './ChatDetailsStyles';
-import { Color, Size } from "Constants";
 import { ParentStyle } from "Styles";
 import { Content } from 'Components';
 
@@ -15,10 +14,10 @@ const ChatDetails = (props) => {
                 <View style={ParentStyle.flex1}>
                     <Icon onPress={() => props.navigation.goBack()} style={styles.headerIcon} name="chevron-left" />
                 </View>
-                <View style={[ParentStyle.flex1, { alignItems: "center" }]}>
+                <View style={[ParentStyle.flex1, ParentStyle.alignItemsCenter]}>
                     <Text style={styles.contactName}>{Data.contactName}</Text>
                 </View>
-                <View style={[ParentStyle.flex1, { alignItems: "flex-end" }]}>
+                <View style={[ParentStyle.flex1, ParentStyle.alignItemsEnd]}>
                     <Icon style={styles.headerIcon} name="more-vertical" />
                 </View>
             </View>

@@ -43,6 +43,13 @@ const styles = StyleSheet.create({
     lastSeen: {
         color: Color.custom.lightText,
         marginBottom: 20
+    },
+    avatarContainer: {
+        position: "relative",
+        flex: 1.1,
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "flex-end"
     }
 })
 export default styles;

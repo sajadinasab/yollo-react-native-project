@@ -25,6 +25,9 @@ const ParentStyle = StyleSheet.create({
     alignItemsCenter: {
         alignItems: "center"
     },
+    alignItemsEnd: {
+        alignItems: "flex-end"
+    },
     flex1: {
         flex: 1,
     },
@@ -65,6 +68,9 @@ const ParentStyle = StyleSheet.create({
     },
     p20: {
         padding: 20
+    },
+    p30: {
+        padding: 30
     },
     // custom
     bgColor: {
@@ -128,7 +134,8 @@ const ParentStyle = StyleSheet.create({
     input: {
         borderBottomColor: Color.custom.light,
         borderBottomWidth: 2
-    }
+    },
+
 
 })
 export default ParentStyle;

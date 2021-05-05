@@ -5,7 +5,6 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 import { Content, PageTitleAndSearch } from 'Components';
 import { ParentStyle } from "Styles";
-import styles from './ChatStyle';
 import ChatList from './ChatList';
 import { Data } from 'Constants';
 
@@ -20,7 +19,7 @@ const Chat = (props) => {
             </View>
             <PageTitleAndSearch pageTitle="Chat" />
             <FlatList
-                style={{ padding: 30 }}
+                style={ParentStyle.p30}
                 data={Data.chat}
                 renderItem={({ item }) => (
                     <ChatList size={60} item={item} navigation={props.navigation} />
