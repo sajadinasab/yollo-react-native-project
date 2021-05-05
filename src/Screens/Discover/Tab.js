@@ -4,23 +4,12 @@ import { Text, View, Pressable } from 'react-native';
 import styles from './DiscoverStyle';
 import { ParentStyle } from "Styles";
 
-const Tab = (props) => {
-    const [state, setstate] = useState({
-        all: {
-            active: true
-        },
-        image: {
-            active: false
-        },
-        news: {
-            active: false
-        }
-    })
+const Tab = ({ state, setState }) => {
 
     const activeTab = (tabName) => {
         switch (tabName) {
             case "all": {
-                setstate(prev => ({
+                setState(prev => ({
                     ...prev,
                     all: {
                         active: true
@@ -35,7 +24,7 @@ const Tab = (props) => {
             }
                 break;
             case "image": {
-                setstate(prev => ({
+                setState(prev => ({
                     ...prev,
                     all: {
                         active: false
@@ -50,7 +39,7 @@ const Tab = (props) => {
             }
                 break;
             case "news": {
-                setstate(prev => ({
+                setState(prev => ({
                     ...prev,
                     all: {
                         active: false

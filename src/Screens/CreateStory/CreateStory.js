@@ -15,12 +15,13 @@ const CreateStory = (props) => {
     const [images, setImages] = useState([]);
     useEffect(() => {
         (async () => {
-            let readFiles = await CameraRoll.getPhotos({ first: 20, after: "20", groupTypes: 'All' });
+            let readFiles = await CameraRoll.getPhotos({ first: 20, after: "0", groupTypes: 'All' });
+            console.log(readFiles);
             readFiles.edges.map((item, index) => {
                 item.checked = false;
                 item.id = index
             });
-            setImages(readFiles.edges);
+            setImages([...images, ...readFiles.edges]);
         })()
     }, []);
     const checkBoxCheck = (id) => {

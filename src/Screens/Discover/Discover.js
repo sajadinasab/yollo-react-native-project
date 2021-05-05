@@ -7,10 +7,11 @@ import { Content, PageTitleAndSearch } from 'Components';
 import styles from './DiscoverStyle';
 import { ParentStyle } from "Styles";
 import { Data, Width } from 'Constants';
-import { subStrText } from 'Utilities'
+import { subStrText } from 'Utilities';
+import Tab from './Tab';
 
 const Discover = (props) => {
-    const [state, setstate] = useState({
+    const [state, setState] = useState({
         all: {
             active: true
         },
@@ -40,57 +41,6 @@ const Discover = (props) => {
             </View>
         )
     }
-
-    const activeTab = (tabName) => {
-        switch (tabName) {
-            case "all": {
-                setstate(prev => ({
-                    ...prev,
-                    all: {
-                        active: true
-                    },
-                    image: {
-                        active: false
-                    },
-                    news: {
-                        active: false
-                    }
-                }))
-            }
-                break;
-            case "image": {
-                setstate(prev => ({
-                    ...prev,
-                    all: {
-                        active: false
-                    },
-                    image: {
-                        active: true
-                    },
-                    news: {
-                        active: false
-                    }
-                }))
-            }
-                break;
-            case "news": {
-                setstate(prev => ({
-                    ...prev,
-                    all: {
-                        active: false
-                    },
-                    image: {
-                        active: false
-                    },
-                    news: {
-                        active: true
-                    }
-                }))
-            }
-                break;
-        }
-    }
-
     return (
         <Content style={ParentStyle.bgColor}>
             <View style={ParentStyle.header}>
@@ -103,20 +53,8 @@ const Discover = (props) => {
             </View>
             <PageTitleAndSearch pageTitle="Discover" />
             <View style={styles.content}>
-                <View style={ParentStyle.row}>
-                    <Pressable style={styles.tabContainer} onPress={() => activeTab("all")}>
-                        <Text style={styles.tabText}>All</Text>
-                        {state.all.active && <View style={styles.tabActive}></View>}
-                    </Pressable>
-                    <Pressable style={styles.tabContainer} onPress={() => activeTab("image")}>
-                        <Text style={styles.tabText}>Images</Text>
-                        {state.image.active && <View style={styles.tabActive}></View>}
-                    </Pressable>
-                    <Pressable style={styles.tabContainer} onPress={() => activeTab("news")}>
-                        <Text style={styles.tabText}>News</Text>
-                        {state.news.active && <View style={styles.tabActive}></View>}
-                    </Pressable>
-                </View>
+                <Tab state={state} setState={setState} />
+
                 {state.all.active || state.image.active ? <View style={{ flex: 1 }}>
                     <View style={[ParentStyle.rowSpaceBetween, styles.secTitleContainer]}>
                         <Text style={styles.secTitle}>TRENDING PHOTOS</Text>
