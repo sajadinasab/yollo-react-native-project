@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, TouchableOpacity, Image, TextInput, FlatList, Pressable } from 'react-native';
+import { View, Text, TouchableOpacity, Image, TextInput, FlatList, Pressable, PermissionsAndroid, Platform } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import CameraRoll from "@react-native-community/cameraroll";
@@ -12,30 +12,67 @@ import styles from './CreateStoryStyle';
 import { ParentStyle } from "Styles";
 
 const CreateStory = (props) => {
-    const [images, setImages] = useState([]);
+    const [state, setState] = useState({
+        lastCursor: null,
+        images: []
+    })
+
+    let fetchParams = {
+        first: 20,
+        assetType: 'All'
+    }
+
+    const hasAndroidPermission = async () => {
+        const permission = PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE;
+
+        const hasPermission = await PermissionsAndroid.check(permission);
+        if (hasPermission) {
+            return true;
+        }
+
+        const status = await PermissionsAndroid.request(permission);
+        return status === 'granted';
+    }
+
     useEffect(() => {
-        (async () => {
-            let readFiles = await CameraRoll.getPhotos({ first: 20, after: "0", groupTypes: 'All' });
-            console.log(readFiles);
-            readFiles.edges.map((item, index) => {
-                item.checked = false;
-                item.id = index
-            });
-            setImages([...images, ...readFiles.edges]);
-        })()
+        if (state.lastCursor) {
+            fetchParams.after = state.lastCursor;
+        }
+    }, [state]);
+
+    useEffect(() => {
+        hasAndroidPermission()
+        loadImage()
     }, []);
+
+    const loadImage = async () => {
+        let readFiles = await CameraRoll.getPhotos(fetchParams);
+        let lastIndex = 0;
+        if (state.images.length > 0) {
+            lastIndex = state.images[state.images.length - 1].id;
+        }
+        readFiles.edges.map((item, index) => {
+            item.checked = false;
+            item.id = index + lastIndex
+        });
+        setState({ images: [...state.images, ...readFiles.edges], lastCursor: readFiles.page_info.end_cursor })
+    }
+
     const checkBoxCheck = (id) => {
-        let copyImage = _.cloneDeep(images);
+        let copyImage = _.cloneDeep(state.images);
         let findIndex = copyImage.findIndex(item => item.id == id);
         copyImage[findIndex].checked = !copyImage[findIndex].checked;
-        setImages(copyImage);
+        setState(prev => ({ ...prev, images: copyImage }))
     }
+
     const showImages = () => {
         return (
             <FlatList
                 style={styles.imageGridContainer}
-                data={images}
+                data={state.images}
                 numColumns={3}
+                onEndReachedThreshold={0.1}
+                onEndReached={loadImage}
                 renderItem={({ item, index }) => {
                     return (index == 0 ?
                         <Pressable style={[styles.grids, { overflow: "hidden" }]}>
