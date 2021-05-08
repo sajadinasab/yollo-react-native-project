@@ -10,7 +10,7 @@ and search for news and images
  2. search 
  3. search box with animation
  4. pick images from your gallery or take a picture from camera
- -add post and story
+ 5. add post and story
  ##  Requirements
  react native set up
  yarn or npm
