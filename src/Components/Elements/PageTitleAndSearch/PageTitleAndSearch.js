@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Text, View, TextInput, Animated } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import Icon from 'react-native-vector-icons/Feather';
 
 import { Color } from "Constants";
 import styles from './PageTitleAndSearchStyle';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Image } from 'react-native';
+import { Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 
 import styles from './ChatDetailsStyles';
@@ -9,7 +9,7 @@ import { Content } from 'Components';
 const ChatDetails = (props) => {
     const Data = props.route.params.Data;
     return (
-        <View style={ParentStyle.bglight}>
+        <Content style={[ParentStyle.bglight, ParentStyle.screenHeight]}>
             <View style={styles.header}>
                 <View style={ParentStyle.flex1}>
                     <Icon onPress={() => props.navigation.goBack()} style={styles.headerIcon} name="chevron-left" />
@@ -30,7 +30,16 @@ const ChatDetails = (props) => {
                     </View>
                 </View>
             </Content>
-        </View>
+            <View style={[ParentStyle.row, ParentStyle.p20, { position: "absolute", bottom: 0 }]}>
+                <View style={styles.inputContainer}>
+                    <TextInput style={styles.textInput} placeholder="Tpe a Message ..." multiline={true} />
+                    <Icon name="send" style={ParentStyle.plusIcon} />
+                </View>
+                <TouchableOpacity activeOpacity={0.8} style={ParentStyle.roundBtn}>
+                    <Icon name="plus" style={ParentStyle.plusIcon} />
+                </TouchableOpacity>
+            </View>
+        </Content>
     );
 };
 export default ChatDetails;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, TouchableOpacity, FlatList } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import Entypo from 'react-native-vector-icons/Entypo';
 
 import { Content, PageTitleAndSearch } from 'Components';
 import { ParentStyle } from "Styles";
@@ -13,7 +13,7 @@ const Chat = (props) => {
         <Content style={ParentStyle.contentBottomTab}>
             <View style={ParentStyle.header}>
                 <TouchableOpacity activeOpacity={0.8} style={ParentStyle.roundBtn}>
-                    <FontAwesome name="plus" style={ParentStyle.plusIcon} />
+                    <Entypo name="plus" style={ParentStyle.plusIcon} />
                 </TouchableOpacity>
                 <Icon style={ParentStyle.plusIcon} name="more-vertical" />
             </View>

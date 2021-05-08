@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
         borderTopRightRadius: 30,
         borderTopLeftRadius: 30,
         padding: 20,
-        minHeight: Height
+        height: Height - 70
     },
     headerIcon: {
         fontSize: Size[21],
@@ -41,5 +41,16 @@ const styles = StyleSheet.create({
         color: Color.custom.textColor,
         marginLeft: 20
     },
+    inputContainer: {
+        paddingVertical: 5,
+        paddingHorizontal: 10,
+        flex: 3,
+        backgroundColor: Color.custom.light,
+        borderRadius: 25,
+        marginRight: 5,
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center"
+    }
 })
 export default styles;

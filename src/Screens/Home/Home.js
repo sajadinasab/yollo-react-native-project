@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, TouchableOpacity, FlatList } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import Icon from 'react-native-vector-icons/Entypo';
 
 import { Content, PageTitleAndSearch } from 'Components';
 import { Data } from "Constants";

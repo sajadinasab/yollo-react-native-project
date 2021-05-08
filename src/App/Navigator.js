@@ -12,7 +12,9 @@ const TabScreen = () => {
     return (
         <Tab.Navigator tabBarOptions={{
             style: {
-                height: 70
+                height: 70,
+                opacity: .95,
+                position: "absolute"
             },
             activeTintColor: "#000",
             inactiveTintColor: "#ccc",

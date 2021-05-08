@@ -107,7 +107,7 @@ const ParentStyle = StyleSheet.create({
         fontSize: Size[17]
     },
     contentBottomTab: {
-        minHeight: Height - Height / 6,
+        minHeight: Height - 200,
         backgroundColor: Color.custom.bgColor
     },
     contentNoBottomTab: {
@@ -135,7 +135,9 @@ const ParentStyle = StyleSheet.create({
         borderBottomColor: Color.custom.light,
         borderBottomWidth: 2
     },
-
+    screenHeight: {
+        height: Height
+    }
 
 })
 export default ParentStyle;
